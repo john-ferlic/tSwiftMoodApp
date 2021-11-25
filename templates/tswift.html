@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Taylor Swift Music Video by Mood</title>
+    <script>
+    function showMusicVideo() {
+        var endpoint = ""
+        switch (document.querySelector('input[name="mood"]:checked').value) {
+            case "HAPPY":
+                endpoint = "https://www.youtube.com/embed/5UMCrq-bBCg"
+                break;
+            case "SAD":
+                endpoint = "https://www.youtube.com/embed/tollGa3S0o8"
+                break;
+        }
+        document.getElementById("videoFrame").style.display = 'block'
+        document.getElementById("videoFrame").src = endpoint
+    }
+    </script>
+</head>
+<style>
+.content {
+    max-width: 300px;
+    margin: auto;
+}
+</style>
+<body class="content">
+<p>How are you feeling today?</p>
+<input type="radio" id="happy" name="mood" value="HAPPY">
+<label for="happy">Happy</label><br>
+<input type="radio" id="sad" name="mood" value="SAD">
+<label for="sad">Sad</label><br>
+<button onclick="showMusicVideo()">Submit</button>
+<iframe width="560" height="315" id="videoFrame" style="display:none" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</body>
+</html>
